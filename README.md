@@ -1,3 +1,1 @@
-#Abradee's Webpage
-this webpage is a work in progress 
-abradee.github.io
+you should not see this go to abradee.github.io
