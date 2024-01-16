@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+  <title>Infinite Terrain Generator</title>
+</head>
+<body>
+  <canvas id="terrainCanvas"></canvas>
+  <script>
+    const canvas = document.getElementById('terrainCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    canvas.width = width;
+    canvas.height = height;
+
+    const terrainGenerator = {
+      seed: Math.random(),
+      scale: 0.02,
+      octaves: 4,
+      persistence: 0.5,
+      lacunarity: 2.0,
+      xOffset: 0,
+      yOffset: 0,
+
+      generateTerrain: function (x, y) {
+        let value = 0;
+        let amplitude = 1;
+
+        for (let i = 0; i < this.octaves; i++) {
+          const freq = Math.pow(this.lacunarity, i);
+          const amp = Math.pow(this.persistence, i);
+
+          value += noise(x * freq * this.scale + this.xOffset, y * freq * this.scale + this.yOffset) * amplitude;
+          amplitude *= amp;
+        }
+
+        return value;
+      }
+    };
+
+    function noise(x, y) {
+      const n = x + y * 57;
+      terrainGenerator.seed = (n * (n * n * 60493 + 19990303) + 1376312589) & 0x7fffffff;
+      return (1.0 - ((terrainGenerator.seed & 0x7fffffff) % 100000) / 50000.0) * 2 - 1;
+    }
+
+    function drawTerrain() {
+      for (let x = 0; x < width; x++) {
+        for (let y = 0; y < height; y++) {
+          const value = terrainGenerator.generateTerrain(x, y);
+          const color = value * 128 + 128;
+          ctx.fillStyle = `rgb(${color},${color},${color})`;
+          ctx.fillRect(x, y, 1, 1);
+        }
+      }
+    }
+
+    function animate() {
+      drawTerrain();
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+</body>
+</html>
