@@ -1,3 +1,3 @@
-Welcome to the open source code. 
+this is my webpage with some games and i am working on other stuff
 
-I DO NOT OWN ANY GAMES THAT ARE LINKED HERE, THEY WERE JUST TWEAKED BY ME!
+you are at the wrong site! go to https://abradee.github.io
