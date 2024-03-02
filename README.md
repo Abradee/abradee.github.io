@@ -1,1 +1,3 @@
-you should not see this go to abradee.github.io
+Welcome to the open source code. 
+
+I DO NOT OWN ANY GAMES THAT ARE LINKED HERE, THEY WERE JUST TWEAKED BY ME!
