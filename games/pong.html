@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+          background-color: rgb(0, 0, 0);
+        }
+        
+        h1 {
+          color: rgb(255, 0, 0);
+          margin-left: 40px;
+        }
+
+        p {
+          color: rgb(15, 204, 24);
+          margin-left: 40px;
+        }
+        </style>
+<title>Abradee's Pong</title>
+</head>
+<body>
+
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.9.5/brython.min.js"></script>
+
+<script type="text/javascript">
+    // Start Brython
+    window.onload = function() {
+        brython();
+    };
+</script>
+
+
+
+<script type="text/python">
+    print("Welcome to Pong! Go against the bot!")
+
+    import pygame
+    import random
+    
+    
+    # Initialize Pygame
+    pygame.init()
+    
+    # Set up the screen
+    WIDTH, HEIGHT = 800, 600
+    screen = pygame.display.set_mode((WIDTH, HEIGHT))
+    pygame.display.set_caption("BORED PONG")
+    
+    # Define colors
+    WHITE = (255, 255, 255)
+    BLACK = (0, 0, 0)
+    
+    # Set up game objects
+    ball = pygame.Rect(WIDTH // 2 - 15, HEIGHT // 2 - 15, 30, 30)
+    left_paddle = pygame.Rect(50, HEIGHT // 2 - 60, 20, 120)
+    right_paddle = pygame.Rect(WIDTH - 70, HEIGHT // 2 - 60, 20, 120)
+    
+    # Set up ball speed
+    ball_speed_x = 7 * random.choice((1, -1))
+    ball_speed_y = 7 * random.choice((1, -1))
+    
+    # Set up paddle speed
+    paddle_speed = 0
+    
+    # Set up bot speed
+    bot_speed = 7
+    
+    # Set up scoring
+    player1_score = 0
+    player2_score = 0
+    font = pygame.font.Font(None, 50)
+    
+    # Main game loop
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+            elif event.type == pygame.MOUSEMOTION:
+                _, mouse_y = pygame.mouse.get_pos()
+                left_paddle.y = mouse_y - left_paddle.height // 2
+    
+        # Move right paddle (bot)
+        if ball.y > right_paddle.y + right_paddle.height // 2:
+            right_paddle.y += bot_speed
+        elif ball.y < right_paddle.y + right_paddle.height // 2:
+            right_paddle.y -= bot_speed
+    
+        # Ensure paddles stay within screen boundaries
+        left_paddle.y = max(min(left_paddle.y, HEIGHT - left_paddle.height), 0)
+        right_paddle.y = max(min(right_paddle.y, HEIGHT - right_paddle.height), 0)
+    
+        # Move ball
+        ball.x += ball_speed_x
+        ball.y += ball_speed_y
+    
+        # Check for collision with left paddle
+        if ball.colliderect(left_paddle):
+            ball_speed_x *= -1
+    
+        # Check for collision with right paddle
+        if ball.colliderect(right_paddle):
+            ball_speed_x *= -1
+    
+        # Check for scoring
+        if ball.x < 0:
+            player2_score += 1
+            ball.x, ball.y = WIDTH // 2 - 15, HEIGHT // 2 - 15
+            ball_speed_x = 7 * random.choice((1, -1))
+            ball_speed_y = 7 * random.choice((1, -1))
+        elif ball.x > WIDTH:
+            player1_score += 1
+            ball.x, ball.y = WIDTH // 2 - 15, HEIGHT // 2 - 15
+            ball_speed_x = 7 * random.choice((1, -1))
+            ball_speed_y = 7 * random.choice((1, -1))
+    
+        # Ensure ball stays within screen boundaries
+        if ball.y <= 0 or ball.y >= HEIGHT - ball.height:
+            ball_speed_y *= -1
+    
+        # Clear the screen
+        screen.fill(BLACK)
+    
+        # Draw the paddles, ball, and score
+        pygame.draw.rect(screen, WHITE, left_paddle)
+        pygame.draw.rect(screen, WHITE, right_paddle)
+        pygame.draw.ellipse(screen, WHITE, ball)
+        score_display = font.render(f"{player1_score} - {player2_score}", True, WHITE)
+        screen.blit(score_display, (WIDTH // 2 - 30, 10))
+    
+        # Update the display
+        pygame.display.flip()
+    
+        # Cap the frame rate
+        pygame.time.Clock().tick(60)
+    
+    # Quit Pygame
+    pygame.quit()
+    
+    </script>
+    
+</body>
+</html>
