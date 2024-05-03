@@ -1,3 +1,3 @@
-this is my webpage with some games and i am working on other stuff
-
-you are at the wrong site! go to https://abradee.github.io
+Welcome to the source code to my website, https://abradee.github.io !
+Here you can just look around at how my site works, fork the files, download some files, and more.
+If you have any questions or comments, contact Abradee on his email: cptnspacecat@outlook.com
