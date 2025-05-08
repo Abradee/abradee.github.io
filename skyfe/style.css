@@ -76,6 +76,13 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+
+   /* Small Button Modifier */
+  .btn-small {
+   padding: 8px 20px;
+    font-size: 0.9rem;
+  }
+
   
   /* About Page Container */
   .container {
