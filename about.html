@@ -1,45 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <title>Abradee's Official Page - About</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
     <style>
         body {
-          background-color: rgb(0, 0, 0);
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at top left, #001f3f, #000000);
+            font-family: 'Orbitron', sans-serif;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
         }
-        
-        h1 {
-          color: rgb(255, 0, 0);
-          margin-left: 40px;
-          font-family: 'Minecraftia';
 
+        .container {
+            background: rgba(0, 0, 50, 0.6);
+            border: 2px solid #007bff;
+            border-radius: 20px;
+            padding: 40px;
+            width: 90%;
+            max-width: 700px;
+            box-shadow: 0 0 25px #007bff33;
+        }
+
+        h1, h2 {
+            color: #00aaff;
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         p {
-          color: rgb(15, 204, 24);
-          margin-left: 40px;
-          font-family: 'Minecraftia';
-
+            color: #d0e7ff;
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.6;
         }
-        </style>
-<title>Abradee's Official Page - About</title>
+
+        a {
+            color: #00c8ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #ffffff;
+        }
+
+        .back-link {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .back-link a {
+            background: #001f3f;
+            padding: 10px 20px;
+            border-radius: 12px;
+            border: 1px solid #00c8ff;
+            transition: 0.3s;
+        }
+
+        .back-link a:hover {
+            background-color: #00c8ff;
+            color: #001f3f;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Abradee's Github Page - About</h1>
+        <p>
+            This webpage contains games and fun things for people to do when they feel like it.
+            If you have a question about this site or your game was put here and you want it taken down,
+            email <a href="mailto:cptnspacecat@outlook.com">Abradee</a>.
+        </p>
 
-<h1>Abradee's Github Page - About</h1>
-<p>This webpage contains games and fun things for people to do when they feel like it. If you have a question about this site or your game was put here and you want it taken down, email <a href="mailto:cptnspacecat@outlook.com">Abradee</a>  </p>
+        <h2>About the Creator</h2>
+        <p>
+            I am Abradee. I create music, play games, and code things. I have been a musical artist for only a couple of months now. But it's good.
+        </p>
 
-<h2>About the Creator</h2>
-<p>
-  I am Abradee. I create music, play games, and code things. I have been a musical artist for only a couple of months now. But it's good.
-</p>
-
-<li><a href="index.html">Back to <a href="abradee.github.io">abradee.github.io</a></li>
-
-
-
-
-<p></p>
-<p></p>
-<p></p>
-
+        <div class="back-link">
+            <a href="index.html">← Back to abradee.github.io</a>
+        </div>
+    </div>
 </body>
 </html>
