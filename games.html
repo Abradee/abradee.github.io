@@ -1,45 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <title>Abradee's Games</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at top left, #001f3f, #000000);
+            font-family: 'Orbitron', sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 40px 20px;
+        }
 
-<style>        body {
-  background-color: rgb(0, 0, 0);
-}
+        .container {
+            background: rgba(0, 0, 50, 0.6);
+            border: 2px solid #007bff;
+            border-radius: 20px;
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 0 25px #007bff33;
+        }
 
-h1 {
-  color: rgb(255, 0, 0);
-  margin-left: 40px;
-  font-family: 'Minecraftia';
+        h1 {
+            color: #00aaff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-}
+        p {
+            color: #d0e7ff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-p {
-  color: rgb(15, 204, 24);
-  margin-left: 40px;
-  font-family: 'Minecraftia';
+        ul {
+            list-style: none;
+            padding: 0;
+        }
 
-}</style>
+        li {
+            margin: 12px 0;
+        }
 
-<title>Abradee's Games</title>
+        a {
+            text-decoration: none;
+            color: #00c8ff;
+            background: #001f3f;
+            padding: 10px 20px;
+            border-radius: 12px;
+            display: inline-block;
+            transition: 0.3s;
+            font-weight: bold;
+            border: 1px solid #00c8ff;
+        }
+
+        a:hover {
+            background-color: #00c8ff;
+            color: #001f3f;
+        }
+
+        .discord-widget {
+            border: 2px solid #007bff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 20px #007bff33;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Games</h1>
+        <p>... :)</p>
+        <ul>
+            <li><a href="games/eaglercraft1-5-2.html" target="_blank">EaglerCraft 1.5.2 [boredcraft]</a></li>
+            <li><a href="games/eaglercraft1-8-8.html" target="_blank">EaglerCraft 1.8.8 ULTIMATE [boredcraft latest]</a></li>
+            <li><a href="games/1v1-lol.html" target="_blank">1v1.LOL</a></li>
+            <li><a href="index.html">← Back to abradee.github.io</a></li>
+        </ul>
+    </div>
 
-<h1>Games</h1>
-<p></p>
-<p>... :)</p>
-<li><a href="games\eaglercraft1-5-2.html" target="new_window">EaglerCraft 1.5.2 [boredcraft]</a></li>
-<li><a href="games\eaglercraft1-8-8.html" target="_blank">EaglerCraft 1.8.8 ULTIMATE [boredcraft latest]</a></li>
-<li><a href="games\1v1-lol.html" target="_blank">1v1.LOL</a></li>
-<li><a href="index.html">Back to <a href="abradee.github.io">abradee.github.io</a></li>
-
-
-
-<iframe src="https://discord.com/widget?id=1199091761000218715&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-
-
-
-
-
-
+    <div class="discord-widget">
+        <iframe src="https://discord.com/widget?id=1199091761000218715&theme=dark"
+                width="350" height="500"
+                allowtransparency="true"
+                frameborder="0"
+                sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+        </iframe>
+    </div>
 </body>
 </html>
