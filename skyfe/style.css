@@ -38,16 +38,10 @@
   
   /* Paragraphs */
   p {
-    font-size: 4rem;
-    margin-bottom: 40px;
-    background: linear-gradient(to right, #4facfe, #00f2fe);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    text-align: center;
-  }
-  
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #dceaff;
+   }
   /* Buttons */
   .btn {
     display: inline-block;
