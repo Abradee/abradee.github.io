@@ -1,0 +1,91 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f2f6ff;
+    color: #0a0a0a;
+}
+
+/* Header */
+header {
+    background-color: #0055ff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #d0e0ff;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 85, 255, 0.1);
+    margin: 40px auto;
+    max-width: 800px;
+    border-radius: 20px;
+}
+
+.hero h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #0055ff;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.cta-button,
+.play-button {
+    background-color: #0055ff;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.cta-button:hover,
+.play-button:hover {
+    background-color: #003bb3;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #e6ecff;
+    color: #333;
+    font-size: 0.9rem;
+}
