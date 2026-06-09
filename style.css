@@ -20,3 +20,62 @@ p {
   max-width: 40rem;
   color: darkgray;
 }
+
+.btn-47 {
+    width: 120px;
+    height: 45px;
+    border: none;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.342);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .5s;
+    z-index: 1;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    user-select: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-47-colors {
+    background-color: #414040;
+    color: #fff;
+}
+
+.btn-47:after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #06960e;
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0;
+    transition-duration: .5s;
+}
+
+.btn-47:hover:after {
+    transform: scale(13);
+    transform-origin: center;
+    opacity: 1;
+    transition-duration: .5s;
+}
+
+.btn-47:hover {
+    box-shadow: 0px 0px 5px #06960e,
+        0px 0px 10px #06960e,
+        0px 0px 30px #06960e;
+    transition-duration: .7s;
+}
+
+.btn-47:disabled {
+    pointer-events: none;
+    opacity: .65;
+    color: #7e7e7e;
+    background: #dcdcdc;
+    box-shadow: none;
+}
