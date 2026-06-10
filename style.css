@@ -64,3 +64,7 @@ p {
   grid-template-columns: repeat(3, 1fr); 
   gap: 15px;
 }
+
+.button-container a {
+  text-decoration: none;
+}
