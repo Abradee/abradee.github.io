@@ -95,20 +95,3 @@ li::marker {
   text-decoration: none;
   display: flex; /* Ensures the <a> tag behaves nicely with the stretched button inside */
 }
-
-.soundcloud-container {
-  display: grid;
-  /* Keeps the 3 columns, but ensures they don't grow too wide */
-  grid-template-columns: repeat(3, minmax(250px, 380px)); 
-  gap: 30px 20px; 
-  justify-content: center; /* Centers the whole 3-column grid on the page */
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.soundcloud-container iframe {
-  width: 100% !important;
-  height: 166px;
-  border: none;
-}
