@@ -95,3 +95,19 @@ li::marker {
   text-decoration: none;
   display: flex; /* Ensures the <a> tag behaves nicely with the stretched button inside */
 }
+
+.soundcloud-container {
+  display: grid;
+  /* Creates a 3-column grid that automatically shrinks/grows evenly */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px; /* Space between the players */
+  max-width: 1200px; /* Limits the max width so they don't get too stretched on huge screens */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.soundcloud-container iframe {
+  width: 100% !important; /* Forces the SoundCloud player to fill its grid slot */
+  height: 166px; /* Standard height for the classic SoundCloud player */
+  border: none;
+}
