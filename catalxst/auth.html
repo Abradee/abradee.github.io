@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>catalxst login</title>
+    <link rel="stylesheet" href="https://abradee.github.io/style.css">
+    <link rel="icon" type="image/x-icon" href="/images/web_icon.png">
+</head>
+<body>
+
+    <div class="login-box">
+        <h2>Authentication Required</h2>
+        <p>Please log in to connect to the game server.</p>
+        <button id="login-btn">Sign in with Google</button>
+        <div id="status"></div>
+    </div>
+
+    <!-- Use Firebase ES Modules via CDN -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+        // TODO: Replace this with your exact Firebase config object from the Firebase Console
+        const firebaseConfig = {
+            apiKey: "AIzaSyDtmKbftcCQIBaDSQHsPhE1N2_8s-2B85s",
+            authDomain: "catalxst-game.firebaseapp.com",
+            projectId: "catalxst-game",
+            storageBucket: "catalxst-game.firebasestorage.app",
+            messagingSenderId: "845803058751",
+            appId: "1:845803058751:web:0e85b4ac4f691b0344ea8a",
+            measurementId: "G-ZD557G1X5N"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider();
+
+        const loginBtn = document.getElementById('login-btn');
+        const statusText = document.getElementById('status');
+
+        loginBtn.addEventListener('click', () => {
+            statusText.innerText = "Waiting for Google Auth...";
+            loginBtn.disabled = true;
+
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    statusText.innerText = "Login successful! Generating token...";
+                    // Get the JWT to send back to Godot (and eventually the Java server)
+                    return result.user.getIdToken();
+                })
+                .then((idToken) => {
+                    statusText.innerText = "Sending token to game...";
+                    // Redirect back to Godot's local server on port 8082
+                    window.location.href = `http://localhost:8082/?token=${idToken}`;
+                })
+                .catch((error) => {
+                    console.error("Auth Error:", error);
+                    statusText.innerText = `Login failed: ${error.message}`;
+                    loginBtn.disabled = false;
+                });
+        });
+    </script>
+</body>
+</html>
