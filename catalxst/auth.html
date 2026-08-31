@@ -20,8 +20,8 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+        import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-        // TODO: Replace this with your exact Firebase config object from the Firebase Console
         const firebaseConfig = {
             apiKey: "AIzaSyDtmKbftcCQIBaDSQHsPhE1N2_8s-2B85s",
             authDomain: "catalxst-game.firebaseapp.com",
@@ -32,34 +32,54 @@
             measurementId: "G-ZD557G1X5N"
         };
 
-        // Initialize Firebase
+        // Initialize Firebase & Services
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
+        const db = getFirestore(app);
         const provider = new GoogleAuthProvider();
 
         const loginBtn = document.getElementById('login-btn');
         const statusText = document.getElementById('status');
 
-        loginBtn.addEventListener('click', () => {
+        loginBtn.addEventListener('click', async () => {
             statusText.innerText = "Waiting for Google Auth...";
             loginBtn.disabled = true;
 
-            signInWithPopup(auth, provider)
-                .then((result) => {
-                    statusText.innerText = "Login successful! Generating token...";
-                    // Get the JWT to send back to Godot (and eventually the Java server)
-                    return result.user.getIdToken();
-                })
-                .then((idToken) => {
-                    statusText.innerText = "Sending token to game...";
-                    // Redirect back to Godot's local server on port 8082
-                    window.location.href = `http://localhost:8082/?token=${idToken}`;
-                })
-                .catch((error) => {
-                    console.error("Auth Error:", error);
-                    statusText.innerText = `Login failed: ${error.message}`;
-                    loginBtn.disabled = false;
-                });
+            try {
+                // 1. Sign in with Google Popup
+                const result = await signInWithPopup(auth, provider);
+                const user = result.user;
+
+                statusText.innerText = "Checking player data...";
+
+                // 2. Check if Firestore document exists for this UID
+                const userDocRef = doc(db, "users", user.uid);
+                const userDocSnap = await getDoc(userDocRef);
+
+                // 3. If new user, create the document with default fields
+                if (!userDocSnap.exists()) {
+                    statusText.innerText = "Creating profile...";
+                    await setDoc(userDocRef, {
+                        displayName: user.displayName || "user",
+                        flagCount: 0,
+                        level: 0,
+                        money: 0,
+                        orbs: 0
+                    });
+                }
+
+                // 4. Generate JWT for Godot
+                statusText.innerText = "Sending token to game...";
+                const idToken = await user.getIdToken();
+
+                // 5. Redirect back to Godot's local server
+                window.location.href = `http://localhost:8082/?token=${idToken}`;
+
+            } catch (error) {
+                console.error("Auth Error:", error);
+                statusText.innerText = `Login failed: ${error.message}`;
+                loginBtn.disabled = false;
+            }
         });
     </script>
 </body>
