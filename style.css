@@ -1,7 +1,7 @@
 /* --- Base Styles --- */
 body {
-  background: radial-gradient(circle at center, #1b1e22 0%, #0d0f11 100%);
-  color: #eee;
+  background: #000000;
+  color: #ffffff;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   margin: 0;
   min-height: 100vh;
@@ -15,15 +15,14 @@ body {
 }
 
 h1, h2, h3 {
-  color: #fff;
+  color: #ffffff;
   margin: 0 0 0.5rem 0;
   font-weight: 600;
-  letter-spacing: 0.5px;
 }
 
 p {
   max-width: 40rem;
-  color: #9ba1a6;
+  color: #888888;
   font-size: 0.95rem;
   line-height: 1.5;
   margin: 0 0 1.2rem 0;
@@ -31,49 +30,45 @@ p {
 
 /* --- Card / Login Box Container --- */
 .login-box {
-  background: #181b1e;
-  border: 1px solid #2a2e33;
-  border-radius: 16px;
-  padding: 35px 30px;
+  background: #111111;
+  border: 1px solid #222222;
+  border-radius: 8px;
+  padding: 24px;
   width: 100%;
-  max-width: 380px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(113, 212, 254, 0.05);
+  max-width: 360px;
   box-sizing: border-box;
 }
 
 /* --- Form Inputs --- */
 .input-group {
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .input-group input {
   width: 100%;
-  padding: 12px 14px;
-  background: #23272b;
-  border: 1px solid #363b42;
-  border-radius: 8px;
-  color: #fff;
+  padding: 10px 12px;
+  background: #1a1a1a;
+  border: 1px solid #333333;
+  border-radius: 6px;
+  color: #ffffff;
   font-size: 14px;
   box-sizing: border-box;
-  transition: all 0.2s ease;
   outline: none;
 }
 
 .input-group input:focus {
   border-color: #71D4FE;
-  box-shadow: 0 0 8px rgba(113, 212, 254, 0.3);
-  background: #262b30;
 }
 
 .input-group input::placeholder {
-  color: #6c757d;
+  color: #666666;
 }
 
 /* --- Buttons & Layouts --- */
 .auth-actions {
   display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
+  gap: 8px;
+  margin-bottom: 12px;
 }
 
 .auth-actions button {
@@ -81,64 +76,55 @@ p {
 }
 
 button, .btn-160 {
-  background: #2F3336;
+  background: #222222;
   color: #ffffff;
-  border: 1px solid #41474d;
-  border-radius: 10px;
-  padding: 12px 20px;
+  border: 1px solid #333333;
+  border-radius: 6px;
+  padding: 10px 16px;
   font-size: 14px;
   font-weight: 500;
-  letter-spacing: 0.5px;
   cursor: pointer;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
-  transition: all 0.2s ease;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   user-select: none;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 button:hover, .btn-160:hover {
-  background: #393e43;
-  border-color: #71D4FE;
-  box-shadow: 0 0 12px rgba(113, 212, 254, 0.25);
-  transform: translateY(-1px);
+  background: #2a2a2a;
+  border-color: #555555;
 }
 
 button:active, .btn-160:active {
-  transform: translateY(1px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  background: #1f1f1f;
 }
 
 button:disabled, .btn-160:disabled {
   pointer-events: none;
-  opacity: 0.5;
-  color: #7e7e7e;
-  background: #23272b;
-  border-color: #363b42;
-  box-shadow: none;
+  opacity: 0.4;
+  background: #1a1a1a;
+  border-color: #222222;
 }
 
-/* Google Sign-in Variant */
-#google-login-btn {
-  background: #24282c;
+/* Accent for primary action buttons */
+#save-username-btn, 
+#email-signup-btn {
+  border-color: #71D4FE;
+  color: #71D4FE;
 }
 
-#google-login-btn:hover {
-  background: #2c3237;
-}
-
-/* Primary Action Accent */
-#save-username-btn, #email-signup-btn {
-  border-color: rgba(113, 212, 254, 0.4);
+#save-username-btn:hover, 
+#email-signup-btn:hover {
+  background: #16242c;
 }
 
 /* --- Divider & Status Text --- */
 hr {
-  margin: 20px 0;
+  margin: 16px 0;
   border: 0;
-  border-top: 1px solid #2a2e33;
+  border-top: 1px solid #222222;
 }
 
 #status {
@@ -162,7 +148,7 @@ ul {
 }
 
 li {
-  color: #eee;
+  color: #ffffff;
   font-size: 1rem;
   margin-bottom: 0.4rem;
 }
@@ -175,7 +161,7 @@ li::marker {
 .button-container {
   display: grid;
   grid-template-columns: repeat(3, max-content);
-  gap: 15px;
+  gap: 12px;
   justify-content: center;
 }
 
